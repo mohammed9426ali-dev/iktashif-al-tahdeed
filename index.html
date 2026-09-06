@@ -96,8 +96,8 @@
       const sortEntries=entries=>entries.slice().sort((a,b)=>Number(b.score)-Number(a.score)||Number(b.correct)-Number(a.correct)||Number(b.ai)-Number(a.ai)||Number(a.at)-Number(b.at));
       const escapeHtml=value=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
       const setStatus=(message,type='')=>{statusEl.textContent=message;statusEl.className=`session-status ${type}`};
-      const setCode=code=>{sessionCode=cleanCode(code);codeInput.value=sessionCode;const url=new URL(location.href);if(sessionCode)url.searchParams.set('session',sessionCode);else url.searchParams.delete('session');history.replaceState(null,'',url);};
-      let appKey=new URLSearchParams(location.search).get('k')||'';
+      let appKey=new URLSearchParams(location.search).get('k')||'3cg7aby9';
+      const setCode=code=>{sessionCode=cleanCode(code);codeInput.value=sessionCode;const url=new URL(location.href);if(sessionCode)url.searchParams.set('session',sessionCode);else url.searchParams.delete('session');if(appKey)url.searchParams.set('k',appKey);history.replaceState(null,'',url);};
       const storageKey=()=>`ai-court-session-${sessionCode}`;
       const ensureAppKey=async()=>{if(appKey)return appKey;const response=await fetch('https://keyvalue.immanuel.co/api/KeyVal/GetAppKey');if(!response.ok)throw new Error('app-key');appKey=(await response.text()).replace(/["\s]/g,'');if(!appKey)throw new Error('app-key');const url=new URL(location.href);url.searchParams.set('k',appKey);history.replaceState(null,'',url);return appKey};
       const readSharedBoard=async()=>{const key=await ensureAppKey();const response=await fetch(`https://keyvalue.immanuel.co/api/KeyVal/GetValue/${encodeURIComponent(key)}/${encodeURIComponent(storageKey())}`);if(!response.ok)throw new Error('read');const raw=await response.text();if(!raw||raw==='null')return[];try{const parsed=JSON.parse(raw);return Array.isArray(parsed)?parsed:[]}catch{return[]}};
