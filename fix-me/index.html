@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07101b" />
+    <meta name="description" content="FIX ME — فعالية إصلاح الأكواد" />
+    <title>FIX ME // ARENA</title>
+    <link rel="stylesheet" href="https://6a9c732856bb0822e3d9b438--resonant-hummingbird-532f29.netlify.app/src/styles.css" />
+    <link rel="stylesheet" href="https://6a9c732856bb0822e3d9b438--resonant-hummingbird-532f29.netlify.app/src/club-theme.css" />
+    <link rel="stylesheet" href="src/enhancements.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="grid-lines" aria-hidden="true"></div>
+    <main id="app" class="shell">
+      <section id="landingView" class="view active" aria-labelledby="heroTitle">
+        <header class="topbar">
+          <div class="brand"><span class="brand-mark">✦</span><span>FIX<span class="accent">ME</span></span></div>
+          <div class="topbar-actions"><span class="live-dot"><i></i> LIVE ARENA</span><button id="languageToggle" class="icon-button" type="button" aria-label="تبديل اللغة">EN</button></div>
+        </header>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span>DEVELOPER CHALLENGE</span><b>05 ROUNDS</b></p>
+            <h1 id="heroTitle">أصلح الخطأ.<br /><em>اصنع الأثر.</em></h1>
+            <p class="hero-lead">ساحة تحدّي حيّة لطلاب الجامعة. اقرأ الكود، اكشف العطل، وثبّت الحل قبل أن ينتهي الوقت.</p>
+            <div class="hero-stats"><div><strong>02:30</strong><span>لكل مرحلة</span></div><div><strong>10</strong><span>تحديات موثّقة</span></div><div><strong>∞</strong><span>روح المنافسة</span></div></div>
+          </div>
+          <div class="hero-art" aria-label="هوية FIX ME التفاعلية"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="core"><span>FIX</span><b>ME</b><small>// ARENA</small></div><div class="orbit-tag tag-top">BUG DETECTED</div><div class="orbit-tag tag-bottom">SYNCED / READY</div></div>
+        </div>
+        <section class="setup-card" aria-labelledby="setupTitle">
+          <div class="card-heading"><span class="step">01</span><div><p>قبل الإقلاع</p><h2 id="setupTitle">عرّف هويتك في الساحة</h2></div><span class="status-pill">SESSION READY</span></div>
+          <div class="setup-grid name-only-grid">
+            <label class="field-label" for="playerName">الاسم
+              <span class="input-wrap"><span class="input-icon">⌁</span><input id="playerName" autocomplete="name" placeholder="اكتب اسمك أو لقبك" /></span>
+            </label>
+          </div>
+          <p class="name-only-note">دخول سريع: اكتب الاسم فقط، ثم اختر اللغة وابدأ.</p>
+          <div class="stack-heading"><div><span class="step">02</span><div><p>اختر سلاحك</p><h2>لغة التحدّي</h2></div></div><span class="hint-copy">5 أسئلة في كل لغة</span></div>
+          <div class="stack-grid">
+            <button class="stack-card java" data-language="java" type="button"><span class="stack-index">01 / JAVA</span><span class="stack-logo">J</span><span class="stack-name">Java</span><span class="stack-desc">منطق، دوال، وقوائم بيانات في بيئة منظمة.</span><span class="stack-cta">ابدأ السلسلة <b>←</b></span></button>
+            <button class="stack-card python" data-language="python" type="button"><span class="stack-index">02 / PYTHON</span><span class="stack-logo">Py</span><span class="stack-name">Python</span><span class="stack-desc">دوال ذكية، نصوص، وحلول سريعة وواضحة.</span><span class="stack-cta">ابدأ السلسلة <b>←</b></span></button>
+          </div>
+          <div class="setup-footer"><span><i class="shield-icon">◇</i> لا نطلب تسجيل دخول — الاسم فقط</span><span>5 جولات لكل لاعب</span></div>
+        </section>
+        <p id="landingError" class="form-error" role="alert"></p>
+      </section>
+
+      <section id="gameView" class="view" aria-labelledby="challengeTitle">
+        <header class="game-topbar"><div class="brand"><span class="brand-mark">✦</span><span>FIX<span class="accent">ME</span></span></div><div class="session-meta"><span id="playerBadge">PLAYER</span><span class="session-divider">/</span><span id="sessionBadge">ARENA</span></div><button id="exitGame" class="ghost-button" type="button">إنهاء الجولة <span>×</span></button></header>
+        <div class="game-layout">
+          <aside class="mission-panel">
+            <div class="mission-kicker"><span id="gameLanguage">JAVA</span><span id="missionDifficulty">LEVEL 01</span></div>
+            <h2 id="challengeTitle">حرف ناقص</h2><p id="challengeSubtitle" class="mission-subtitle">رسالة الترحيب لا تجتاز الاختبار.</p>
+            <div class="objective"><span class="label">MISSION OBJECTIVE</span><p id="challengeObjective">عدّل الدالة حتى تجتاز الاختبار.</p></div>
+            <div class="test-heading"><span>TEST CASES</span><span id="testCount">03 / 03</span></div><ul id="testList" class="test-list"></ul>
+            <button id="hintButton" class="hint-button" type="button"><span>استخدم تلميحًا</span><b>-25 نقطة</b></button>
+            <button id="skipButton" class="skip-button" type="button">تجاوز السؤال واحتساب النتيجة</button>
+            <div class="mission-tip"><span>⌁</span><p>يمكنك تجاوز السؤال؛ سيظهر نموذج الإجابة بعد النتيجة.</p></div>
+          </aside>
+          <section class="workspace-panel">
+            <div class="progress-row"><div class="progress-copy"><span id="roundLabel">ROUND 01 / 05</span><b id="roundName">تحليل الكود</b></div><div class="progress-track"><span id="progressBar"></span></div><div class="timer-wrap"><span class="timer-icon">◷</span><strong id="timer">02:30</strong><small>TIME LEFT</small></div></div>
+            <div class="score-row"><div class="score-stat"><span>POINTS</span><strong id="scoreValue">000</strong></div><div class="score-stat combo"><span>COMBO</span><strong id="comboValue">x1</strong></div><div class="score-stat streak"><span>SOLVED</span><strong id="streakValue">00</strong></div><div id="securityBadge" class="security-badge">SECURE CHECKS <span>●</span></div></div>
+            <div class="editor-card">
+              <div class="editor-head"><div class="file-label"><span class="file-dot"></span><b id="fileName">Welcome.java</b><span id="saveState">UNSAVED</span></div><div class="editor-actions"><button id="resetCode" class="editor-action" type="button">إعادة</button><span class="editor-lang" id="editorLang">JAVA</span></div></div>
+              <div class="code-gutter"><pre id="lineNumbers">1
+2
+3
+4
+5</pre><textarea id="codeEditor" spellcheck="false" aria-label="محرر الكود" autocapitalize="off" autocomplete="off"></textarea></div>
+              <div class="console" aria-live="polite"><div class="console-head"><span><i></i> LIVE TEST CONSOLE</span><span id="consoleTime">--:--</span></div><pre id="consoleOutput">$ Ready. افحص الكود ثم شغّل الاختبارات.</pre></div>
+              <div class="editor-footer"><span id="editorHint">TIP: أصلح المنطق، ثم شغّل الاختبارات قبل الإرسال.</span><div class="editor-buttons"><button id="runButton" class="run-button" type="button"><span>▶</span> شغّل الاختبارات</button><button id="submitButton" class="submit-button" type="button" disabled>ثبّت الحل <span>↗</span></button></div></div>
+            </div>
+            <div class="coach-row"><span class="coach-avatar">AI</span><p id="coachMessage">حلّك لا يُرسل حتى تنجح كل الاختبارات. ركّز على السطر المميز.</p><span class="coach-spark">✦</span></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="resultsView" class="view" aria-labelledby="resultsTitle">
+        <header class="topbar"><div class="brand"><span class="brand-mark">✦</span><span>FIX<span class="accent">ME</span></span></div><span class="status-pill">MISSION COMPLETE</span></header>
+        <div class="results-layout"><div class="results-hero"><div class="success-orbit"><span>✓</span></div><p class="eyebrow">RUN COMPLETE / <span id="resultLanguage">JAVA</span></p><h1 id="resultsTitle">أصلحت المستقبل.</h1><p id="resultMessage">هذه الجولة انتهت، لكن اسمك الآن على لوحة الساحة.</p><div class="result-score"><span>FINAL POINTS</span><strong id="finalScore">000</strong><small id="finalRank">#-- في الترتيب</small></div><div class="result-metrics"><div><b id="finalSolved">00 / 05</b><span>تحديات محلولة</span></div><div><b id="finalStreak">x1</b><span>أفضل Combo</span></div><div><b id="finalTime">00:00</b><span>الوقت المتبقي</span></div></div></div><div class="leaderboard-card"><div class="leaderboard-head"><div><span class="eyebrow">LIVE BOARD</span><h2>لوحة المتصدرين</h2></div><span class="sync-status"><i></i><span>محليًا</span></span></div><div id="leaderboardList" class="leaderboard-list"></div><div class="leaderboard-footer"><span>ترتيب المحاولات على هذا الجهاز</span></div></div></div>
+        <section class="answer-review-panel" aria-labelledby="answerReviewTitle"><div class="answer-review-heading"><span>03</span><div><p>بعد انتهاء المحاولة</p><h2 id="answerReviewTitle">نموذج الإجابات والمراجعة</h2></div></div><p class="points-copy"><b>+100</b> للحل الصحيح · <b>+1</b> لكل 3 ثوانٍ متبقية (حتى 50) · <b>−25</b> لكل تلميح · السؤال المتروك <b>0</b>.</p><div id="answerReview" class="answer-review"></div></section>
+        <div class="results-actions"><button id="playAgain" class="primary-button" type="button">جولة جديدة <span>↗</span></button><button id="copyResult" class="secondary-button" type="button">انسخ بطاقة النتيجة</button></div>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
